@@ -15,10 +15,18 @@ if ( ! class_exists('FitPress_BuddyPress')) {
     class FitPress_BuddyPress{
 
         static $custom_profile_fields = array(
-                'FitBit Token' => array('replacement' => 'fitpress_fitbit_token', 'process' => null ),
-                'FitBit Secret' => array('replacement' => 'fitpress_fitbit_secret', 'process' => null ),
-                'FitBit Avatar' => array('replacement' => 'fitpress_fitbit_avatar', 'process' => null ),
-                'FitBit Avatar 150' => array('replacement' => 'fitpress_fitbit_avatar150', 'process' => null ),
+                'fitpress_fitbit_token' => array('label' => 'FitBit Token' ),
+                'fitpress_fitbit_secret' => array('label' => 'FitBit Secret' ),
+                'fitpress_fitbit_age' => array('label' => 'FitBit Age' ),
+                'fitpress_fitbit_avatar' => array('label' => 'FitBit Avatar' ),
+                'fitpress_fitbit_avatar150' => array('label' => 'FitBit Avatar 150' ),
+                'fitpress_fitbit_averageDailySteps' => array('label' => 'FitBit Average Daily Steps' ),
+                'fitpress_fitbit_dateOfBirth' => array('label' => 'FitBit Date Of Birth' ),
+                'fitpress_fitbit_displayName' => array('label' => 'FitBit Display Name' ),
+                'fitpress_fitbit_distanceUnit' => array('label' => 'FitBit Distance Units' ),
+                'fitpress_fitbit_encodedId' => array('label' => 'FitBit Encoded Id' ),
+                'fitpress_fitbit_features' => array('label' => 'FitBit Features', 'process' => 'serialize' ),
+
                 
             );
 
@@ -124,7 +132,60 @@ if ( ! class_exists('FitPress_BuddyPress')) {
                     wp_die('An error occurred');
 
                 echo '<h2>'.__( 'Fitbit Profile Details', 'fitpress' ).'</h2>';
-                echo '<img src="'.get_user_meta($user_id,  'fitpress_fitbit_avatar150', true ).'" />';
+                // echo '<img src="'.get_user_meta( $user_id,  'fitpress_fitbit_avatar150', true ).'" />';
+                echo '<div class="row clearfix">';
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 text-center focus-box">';
+                echo '<div class="service-icon"><i style="background:url('.$json->user->avatar150.') no-repeat center;width:100%; height:100%;" class="pixeden"></i> <!-- FOCUS ICON--></div>';
+                echo '<h3 class="red-border-bottom">'.$json->user->fullName.'</h3>';
+                
+                echo '</div>';
+
+                echo '<div class="col-small-6 col-md-8 col-lg-9">';
+                echo 'Additional Profile Details';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<hr />';
+
+                if( isset( $json->user->topBadges ) && count( $json->user->topBadges ) ){
+                    echo '<div class="clearfix">';
+                    echo '<h3>'.__( 'Top Badges', 'fitpress' ).'</h3>';
+
+                    echo '<div class="row clearfix">';
+                    foreach( $json->user->topBadges as $badge ){
+
+                        echo '<div class="col-sm-6 col-md-4 col-lg-3 text-center focus-box">';
+                        // echo '<img src="'.$badge->image125px.'" />';
+                        echo '<div class="service-icon"><i style="background:url('.$badge->image125px.') no-repeat center;width:100%; height:100%;" class="pixeden"></i> <!-- FOCUS ICON--></div>';
+                        // echo '<div class="text-center">'.$badge->name.'</div>';
+                        echo '<h3 class="red-border-bottom">'.$badge->name.'</h3>';
+                        echo '</div>';
+
+                    }
+                    echo '</div></div><hr />';
+                }
+
+
+                $json = $fitbit_php->getFriends();
+
+                if( isset( $json->friends ) && count( $json->friends ) ){
+                    echo '<div class="clearfix">';
+                    echo '<h3 class="clearfix">'.__( 'Friends', 'fitpress' ).'</h3>';
+
+                    echo '<div class="row clearfix">';
+                    foreach($json->friends  as $friend ){
+
+                        echo '<div class="col-sm-6 col-md-4 col-lg-3 text-center focus-box">';
+                        echo '<div class="service-icon"><i style="background:url('.$friend->user->avatar150.') no-repeat center;width:100%; height:100%;" class="pixeden"></i> <!-- FOCUS ICON--></div>';
+                        echo '<h3 class="red-border-bottom">'.$friend->user->displayName.'</h3>';
+                        echo '</div>';
+
+                    }
+                    echo '</div>';
+                    echo '</div>';
+
+                }
+
 
                 // print_r($json);
 
@@ -175,11 +236,11 @@ if ( ! class_exists('FitPress_BuddyPress')) {
                 <?php foreach(self::$custom_profile_fields as $key => $field){ ?>
                     <?php // if(  'true' != $field['private'] ){  // current_user_can( 'manage_options' ) ||  ?>
                     <tr>
-                        <th><label for="<?php echo $field['replacement']; ?>"><?php echo $key; ?></label></th>
+                        <th><label for="<?php echo $key; ?>"><?php echo $field['label']; ?></label></th>
             
                         <td>
-                            <input type="text" name="<?php echo $field['replacement']; ?>" id="<?php echo $field['replacement']; ?>" value="<?php echo esc_attr( get_the_author_meta( $field['replacement'], $user->ID ) ); ?>" class="regular-text" /><br />
-                            <span class="description">Please enter your <?php echo $key; ?>.</span>
+                            <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo esc_attr( get_the_author_meta( $key, $user->ID ) ); ?>" class="regular-text" /><br />
+                            <span class="description"><?php printf( __('Your %s value.', 'fitpress' ), $field['label']); ?></span>
                         </td>
                     </tr>
                     <?php // } // end if ?>
