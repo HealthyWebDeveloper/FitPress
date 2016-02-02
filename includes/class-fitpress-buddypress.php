@@ -25,7 +25,9 @@ if ( ! class_exists('FitPress_BuddyPress')) {
         public static function bp_page_nav(){
             global $bp;
 
-            if(!is_user_logged_in()) return '';
+            global $fitbit_php;
+
+            if(!is_user_logged_in() || !is_object($fitbit_php) ) return '';
          
             $user_domain = bp_displayed_user_domain() ? bp_displayed_user_domain() : bp_loggedin_user_domain();
             
@@ -42,7 +44,6 @@ if ( ! class_exists('FitPress_BuddyPress')) {
          
             ) );
 
-            global $fitbit_php;
 
             // $fitbit_php->resetSession();
 
