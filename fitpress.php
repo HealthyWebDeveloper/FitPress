@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Fitpress
+Plugin Name: FitPress
 Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress site.
 Plugin URI: http://healthywebdeveloper.com
 Author: Bradford Knowlton
