@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== FitPress ===
 Contributors: bradmkjr
 Donate link: http://bradknowlton.com
 Tags: Fitbit

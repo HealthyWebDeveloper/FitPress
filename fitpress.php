@@ -5,7 +5,7 @@ Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress
 Plugin URI: http://healthywebdeveloper.com
 Author: Bradford Knowlton
 Author URI: http://bradknowlton.com
-Version: 1.0.2
+Version: 1.0.3
 License: GPL2
 Text Domain: fitpress
 Domain Path: /languages
@@ -38,10 +38,19 @@ Requires WP: 4.4
 // Help with setting up gulp
 // https://travismaynard.com/writing/getting-started-with-gulp
 
-define( 'FITPRESS_PLUGIN_VERSION', '1.0.2' );  
+define( 'FITPRESS_PLUGIN_VERSION', '1.0.3' );  
 
 // possible future global use
 define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );  
+
+
+/** Requiring required class files */
+
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitbit-api.php');
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitpress-settings.php');
+// require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-shortcode.php');
+// require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-post-type.php');
+// require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-ajax.php');
 
 /**
  * Enqueue scripts

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: FitPress\n"
-"POT-Creation-Date: 2016-02-01 18:50-0700\n"
-"PO-Revision-Date: 2016-02-01 18:49-0700\n"
+"POT-Creation-Date: 2016-02-01 18:56-0700\n"
+"PO-Revision-Date: 2016-02-01 18:56-0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,65 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: fitpress.php:61 fitpress.php:86
+#: fitpress.php:70 fitpress.php:95
 msgid "New Friend Added"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:40
+#: includes/class-fitpress-settings.php:127
+msgid "Friend Settings"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:48
+msgid "Consumer Key"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:58
+msgid "Consumer Secret"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:69
+msgid "Fitbit Token"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:79
+msgid "Fitbit Secret"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:93
+msgid "These settings do things for the FitPress friend plugin."
+msgstr ""
+
+#: includes/class-fitpress-settings.php:126
+msgid "Friend Admin"
+msgstr ""
+
+#: includes/class-fitpress-settings.php:142
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/templates/settings.php:12
+msgid "Add Friend Profile"
+msgstr ""
+
+#: includes/templates/settings.php:13
+msgid "Easily create new profile with API and Fitbit ID"
+msgstr ""
+
+#: includes/templates/settings.php:48
+msgid "Friend Added."
+msgstr ""
+
+#: includes/templates/settings.php:54
+msgid "Friend Create Failed."
+msgstr ""
+
+#: includes/templates/settings.php:64
+msgid "Fitbit ID"
+msgstr ""
+
+#: includes/templates/settings.php:67
+msgid "Create Profile"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
