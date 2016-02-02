@@ -31,13 +31,13 @@ if(!class_exists('FitPress_Settings'))
             // register your plugin's settings
             register_setting('fitpress_settings-group', 'fitpress_consumer_key');
             register_setting('fitpress_settings-group', 'fitpress_consumer_secret');
-            register_setting('fitpress_settings-group', 'fitpress_fitbit_token');
-            register_setting('fitpress_settings-group', 'fitpress_fitbit_secret');
+            // register_setting('fitpress_settings-group', 'fitpress_fitbit_token');
+            // register_setting('fitpress_settings-group', 'fitpress_fitbit_secret');
 
             // add your settings section
             add_settings_section(
                 'fitpress_settings-section', 
-                __( 'FitPress Settings', 'fitpress' ), 
+                __( 'Friend Settings', 'fitpress' ), 
                 array(&$this, 'settings_section_fitpress_settings'), 
                 'fitpress_settings'
             );
@@ -64,33 +64,33 @@ if(!class_exists('FitPress_Settings'))
                 )
             );
              // add your setting's fields
-            add_settings_field(
-                'fitpress_settings-fitbit_token', 
-                __( 'Fitbit Token', 'fitpress' ), 
-                array(&$this, 'settings_field_input_text'), 
-                'fitpress_settings', 
-                'fitpress_settings-section',
-                array(
-                    'field' => 'fitpress_fitbit_token'
-                )
-            );
-            add_settings_field(
-                'fitpress_settings-fitbit_secret', 
-                __( 'Fitbit Secret', 'fitpress' ), 
-                array(&$this, 'settings_field_input_text'), 
-                'fitpress_settings', 
-                'fitpress_settings-section',
-                array(
-                    'field' => 'fitpress_fitbit_secret'
-                )
-            );
+            // add_settings_field(
+            //     'fitpress_settings-fitbit_token', 
+            //     __( 'Fitbit Token', 'fitpress' ), 
+            //     array(&$this, 'settings_field_input_text'), 
+            //     'fitpress_settings', 
+            //     'fitpress_settings-section',
+            //     array(
+            //         'field' => 'fitpress_fitbit_token'
+            //     )
+            // );
+            // add_settings_field(
+            //     'fitpress_settings-fitbit_secret', 
+            //     __( 'Fitbit Secret', 'fitpress' ), 
+            //     array(&$this, 'settings_field_input_text'), 
+            //     'fitpress_settings', 
+            //     'fitpress_settings-section',
+            //     array(
+            //         'field' => 'fitpress_fitbit_secret'
+            //     )
+            // );
             // Possibly do additional admin_init tasks
         } // END public static function activate
     
         public function settings_section_fitpress_settings()
         {
             // Think of this as help text for the section.
-            _e('These settings do things for the FitPress plugin.', 'fitpress');
+            _e('These settings do things for the FitPress friend plugin.', 'fitpress');
         }
     
         /**

@@ -5,7 +5,7 @@ Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress
 Plugin URI: http://healthywebdeveloper.com
 Author: Bradford Knowlton
 Author URI: http://bradknowlton.com
-Version: 1.0.3
+Version: 1.1.3
 License: GPL2
 Text Domain: fitpress
 Domain Path: /languages
@@ -38,7 +38,7 @@ Requires WP: 4.4
 // Help with setting up gulp
 // https://travismaynard.com/writing/getting-started-with-gulp
 
-define( 'FITPRESS_PLUGIN_VERSION', '1.0.3' );  
+define( 'FITPRESS_PLUGIN_VERSION', '1.1.3' );  
 
 // possible future global use
 define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );  
@@ -48,9 +48,29 @@ define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitbit-api.php');
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitpress-settings.php');
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitpress-buddypress.php');
 // require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-shortcode.php');
 // require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-post-type.php');
 // require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-ajax.php');
+
+
+$consumer_key = get_site_option( 'fitpress_consumer_key', false );
+$consumer_secret = get_site_option( 'fitpress_consumer_secret', false );
+// $fitbit_token = get_site_option( 'fitpress_fitbit_token', false );
+// $fitbit_secret = get_site_option( 'fitpress_fitbit_secret', false );
+
+define( 'FITPRESS_CONSUMER_KEY', $consumer_key );
+define( 'FITPRESS_CONSUMER_SECRET', $consumer_secret );
+// define( 'FITPRESS_FITBIT_TOKEN', $fitbit_token );
+// define( 'FITPRESS_FITBIT_SECRET', $fitbit_secret );
+
+global $fitbit_php;
+
+if( '' != FITPRESS_CONSUMER_KEY && '' != FITPRESS_CONSUMER_SECRET ){
+
+    $fitbit_php = new FitBitPHP( FITPRESS_CONSUMER_KEY, FITPRESS_CONSUMER_SECRET, 0, null, 'json' );
+
+}
 
 /**
  * Enqueue scripts
@@ -75,7 +95,8 @@ function fitbit_frontend_enqueue_scripts() {
     wp_enqueue_script( 'fitpress-scripts-localize' );
 }
 
-add_action( 'wp_enqueue_scripts', 'fitbit_frontend_enqueue_scripts' );
+// unneeded at this time
+// add_action( 'wp_enqueue_scripts', 'fitbit_frontend_enqueue_scripts' );
 
 /**
  * Enqueue scripts
@@ -100,6 +121,7 @@ function fitbit_backend_enqueue_scripts() {
     wp_enqueue_script( 'fitpress-scripts-localize' );
 }
 
-add_action( 'admin_enqueue_scripts', 'fitbit_backend_enqueue_scripts' );
+// unneeded at this time
+// add_action( 'admin_enqueue_scripts', 'fitbit_backend_enqueue_scripts' );
 
 
