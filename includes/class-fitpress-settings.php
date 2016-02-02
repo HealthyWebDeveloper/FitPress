@@ -37,7 +37,7 @@ if(!class_exists('FitPress_Settings'))
             // add your settings section
             add_settings_section(
                 'fitpress_settings-section', 
-                __( 'Friend Settings', 'fitpress' ), 
+                __( 'FitPress Settings', 'fitpress' ), 
                 array(&$this, 'settings_section_fitpress_settings'), 
                 'fitpress_settings'
             );
