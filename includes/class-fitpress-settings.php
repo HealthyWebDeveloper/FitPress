@@ -112,6 +112,7 @@ if(!class_exists('FitPress_Settings'))
         public function add_menu()
         {
             // Add a page to manage this plugin's settings
+            // add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function);
             add_options_page(
                 'FitPress Settings', 
                 'FitPress Settings', 
