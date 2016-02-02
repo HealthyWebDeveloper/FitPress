@@ -10,7 +10,7 @@ License: GPL2
 Text Domain: fitpress
 Domain Path: /languages
 
-GitHub Plugin URI: https://github.com/HealthyWebDeveloper/Fitpress
+GitHub Plugin URI: https://github.com/HealthyWebDeveloper/FitPress
 GitHub Branch: master
 
 Requires PHP: 5.3.0
