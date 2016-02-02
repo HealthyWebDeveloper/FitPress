@@ -112,23 +112,23 @@ if(!class_exists('FitPress_Settings'))
         public function add_menu()
         {
             // Add a page to manage this plugin's settings
-            // add_options_page(
-            //     'WP Plugin Template Settings', 
-            //     'WP Plugin Template', 
-            //     'manage_options', 
-            //     'fitpress_settings', 
-            //     array(&$this, 'plugin_settings_page')
-            // );
+            add_options_page(
+                'FitPress Settings', 
+                'FitPress Settings', 
+                'manage_options', 
+                'fitpress_settings', 
+                array(&$this, 'plugin_settings_page')
+            );
 
             // http://www.billrobbinsdesign.com/custom-post-type-admin-page/
-            add_submenu_page(
-            	'edit.php?post_type=friend', 
-            	__('Friend Admin', 'fitpress'), 
-            	__('Friend Settings', 'fitpress'), 
-            	'edit_posts', 
-            	basename(__FILE__), 
-            	array(&$this, 'plugin_settings_page')
-            	);
+            // add_submenu_page(
+            // 	'edit.php?post_type=friend', 
+            // 	__('Friend Admin', 'fitpress'), 
+            // 	__('Friend Settings', 'fitpress'), 
+            // 	'edit_posts', 
+            // 	basename(__FILE__), 
+            // 	array(&$this, 'plugin_settings_page')
+            // 	);
 
         } // END public function add_menu()
 
