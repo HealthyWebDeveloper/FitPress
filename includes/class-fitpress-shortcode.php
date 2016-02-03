@@ -1,111 +1,41 @@
 <?php
 
 /**
- * Class for FitPress BuddyPress Class
+ * Shortcode Class Header
  *
- * @since 1.2.1
  *
- * @package FitPress
- * @author https://codex.buddypress.org/plugindev/how-to-enjoy-bp-theme-compat-in-plugins/
+ * @since 1.0.6
+ *
+ * @package fitpress
  */
 
-// Check that the class exists before trying to use it
-if ( ! class_exists('FitPress_BuddyPress')) {
 
-    class FitPress_BuddyPress{
+class FitPress_Shortcode {
 
-        static $custom_profile_fields = array(
-                'fitpress_fitbit_token' => array('label' => 'FitBit Token' ),
-                'fitpress_fitbit_secret' => array('label' => 'FitBit Secret' ),
+	public static function fitpress_auth_func( $atts, $content = "" ) {
+		$atts = shortcode_atts( array(
+			'show_friends' => 'true',
+			'show_badges' => 'true',
+						
+		), $atts, 'fitpress_auth' );
+		
+		global $bp;
 
-				'fitpress_fitbit_aboutMe' => array('label' => 'FitBit About Me' ),               	
-                'fitpress_fitbit_age' => array('label' => 'FitBit Age' ),
-               	'fitpress_fitbit_avatar' => array('label' => 'FitBit Avatar' ),
-                'fitpress_fitbit_avatar150' => array('label' => 'FitBit Avatar 150' ),
-                'fitpress_fitbit_displayName' => array('label' => 'FitBit Display Name' ),
-                'fitpress_fitbit_fullName' => array('label' => 'FitBit Full Name' ),
-                'fitpress_fitbit_nickname' => array('label' => 'FitBit Nickname' ),
-                'fitpress_fitbit_encodedId' => array('label' => 'FitBit Encoded Id' ),
-                
-                /*
-				'fitpress_fitbit_averageDailySteps' => array('label' => 'FitBit Average Daily Steps' ),
-                'fitpress_fitbit_dateOfBirth' => array('label' => 'FitBit Date Of Birth' ),
-                
-                'fitpress_fitbit_distanceUnit' => array('label' => 'FitBit Distance Units' ),
-                
-                // 'fitpress_fitbit_features' => array('label' => 'FitBit Features', 'process' => 'serialize' ),
-				'fitpress_fitbit_foodsLocale' => array('label' => 'FitBit Foods Locale' ),
-				
-				'fitpress_fitbit_gender' => array('label' => 'FitBit Gender' ),
-				'fitpress_fitbit_glucoseUnit' => array('label' => 'FitBit Glucose Unit' ),
-				'fitpress_fitbit_height' => array('label' => 'FitBit Height' ),
-				'fitpress_fitbit_heightUnit' => array('label' => 'FitBit Height Unit' ),
-				'fitpress_fitbit_locale' => array('label' => 'FitBit Locale' ),
-				'fitpress_fitbit_memberSince' => array('label' => 'FitBit Member Since' ),
-				'fitpress_fitbit_nickname' => array('label' => 'FitBit Nickname' ),
-				'fitpress_fitbit_offsetFromUTCMillis' => array('label' => 'FitBit Offset From UTC Millis' ),
-				'fitpress_fitbit_startDayOfWeek' => array('label' => 'FitBit Start Day Of Week' ),
-				'fitpress_fitbit_strideLengthRunning' => array('label' => 'FitBit Stride Length Running' ),
-				'fitpress_fitbit_strideLengthWalking' => array('label' => 'FitBit Stride Length Walking' ),
-				'fitpress_fitbit_timezone' => array('label' => 'FitBit Timezone' ),
-				// 'fitpress_fitbit_topBadges' => array('label' => 'FitBit Top Badges', 'process' => 'serialize' ),
-				'fitpress_fitbit_waterUnit' => array('label' => 'FitBit Water Unit' ),
-				'fitpress_fitbit_waterUnitName' => array('label' => 'FitBit Water Unit Name' ),
-				'fitpress_fitbit_weight' => array('label' => 'FitBit Weight' ),
-				'fitpress_fitbit_weightUnit' => array('label' => 'FitBit Weight Unit' ),
-				*/						                
-				
-				'fitpress_fitbit_TrackerSteps' => array('label' => 'FitBit Tracker Steps' ),
-				'fitpress_fitbit_TrackerDistance' => array('label' => 'FitBit Tracker Distance' ),
-				'fitpress_fitbit_TrackerFloors' => array('label' => 'FitBit Tracker Floors' ),
-				'fitpress_fitbit_TrackerElevation' => array('label' => 'FitBit Tracker Elevation' ),
-				'fitpress_fitbit_timeInBed' => array('label' => 'FitBit Time in Bed' ),
-				
-				
-				'fitpress_fitbit_sleepMinutesAsleep' => array('label' => 'FitBit Sleep Minutes Asleep' ),
-            );
-
-        public static function bp_page_nav(){
-            global $bp;
-
-            global $fitbit_php;
-
-            if(!is_user_logged_in() || !is_object($fitbit_php) ) return '';
-         
-            $user_domain = bp_displayed_user_domain() ? bp_displayed_user_domain() : bp_loggedin_user_domain();
-            
-            $profile_link = trailingslashit( $user_domain . $bp->profile->slug );
-            
-            bp_core_new_subnav_item( array(
-                'name' => FITPRESS_TAB_NAME,
-                'slug' => 'fitpress',
-                'parent_url' => $profile_link,
-                'parent_slug' => $bp->profile->slug,
-                'screen_function' => array( 'FitPress_BuddyPress', 'page_screen' ),
-                'position' => 20,
-                'user_has_access' => current_user_can('edit_users'),
-         
-            ) );
+        global $fitbit_php;
 
 
-            // $fitbit_php->resetSession();
+		$return = "";
+		
+		if(!is_user_logged_in() || !is_object($fitbit_php) ) {
 
-            // var_dump($fitbit_php);
-
-            $user_domain = bp_displayed_user_domain() ? bp_displayed_user_domain() : bp_loggedin_user_domain();
-            
-            $profile_link = trailingslashit( $user_domain . $bp->profile->slug );
-            
-            // var_dump($fitbit_php->sessionStatus());
-
-            // wp_die();
-
-            if( 0 != $fitbit_php->sessionStatus() || 'authorize' == $_GET['FitPress'] ){
-
-                $fitbit_php->initSession($profile_link.'/fitpress/');
-
-
-                $user_id = get_current_user_id();
+			$return = __( 'You must be logged in to authorize Fitbit', 'fitpress' );
+			
+			$return .= ' <a href="'.wp_login_url( get_permalink() ).'">'.__( 'Log in' ).'</a>';
+		
+			return $return;
+		}else if( 2 == $fitbit_php->sessionStatus() ){
+		
+				 $user_id = get_current_user_id();
 
                 $new_value = $fitbit_php->getOAuthToken();
 
@@ -125,28 +55,8 @@ if ( ! class_exists('FitPress_BuddyPress')) {
                 if ( get_user_meta($user_id,  'fitpress_fitbit_secret', true ) != $new_value )
                     wp_die('An error occurred');
 
-            }
-
-        }
-
-        public static function page_screen(){
-            global $bp;
-            add_action( 'bp_template_content', array( 'FitPress_BuddyPress', 'bp_page_screen_content' ) );
-            bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
-        }
-         
-        public static function bp_page_screen_content(){
-            global $bp;
-
-            global $fitbit_php;
-
-            // var_dump($fitbit_php->sessionStatus());
-
-            if( 2 == $fitbit_php->sessionStatus() ){
-
                 $json = $fitbit_php->getProfile();
 
-                $user_id = get_current_user_id();
 
                 $new_value = $json->user->avatar;
 
@@ -396,9 +306,11 @@ if ( ! class_exists('FitPress_BuddyPress')) {
                 echo '</ul></div>';
                 echo '</div>';
 
+				
+
                 echo '<hr />';
 
-                if( isset( $json->user->topBadges ) && count( $json->user->topBadges ) ){
+                if( 'true' == $atts['show_badges'] && isset( $json->user->topBadges ) && count( $json->user->topBadges ) ){
                     echo '<div class="clearfix">';
                     echo '<h3>'.__( 'Top Badges', 'fitpress' ).'</h3>';
 
@@ -416,117 +328,72 @@ if ( ! class_exists('FitPress_BuddyPress')) {
                     echo '</div></div><hr />';
                 }
 
+				if( 'true' == $atts['show_friends'] ){
+					
+					$json = $fitbit_php->getFriends();
 
-                $json = $fitbit_php->getFriends();
+	                if( isset( $json->friends ) && count( $json->friends ) ){
+	                    echo '<div class="clearfix">';
+	                    echo '<h3 class="clearfix">'.__( 'Friends', 'fitpress' ).'</h3>';
+	
+	                    echo '<div class="row clearfix">';
+	                    foreach($json->friends  as $friend ){
+	
+	                        echo '<div class="col-sm-6 col-md-4 col-lg-3 text-center focus-box">';
+	                        echo '<div class="service-icon"><i style="background:url('.$friend->user->avatar150.') no-repeat center;width:100%; height:100%;" class="pixeden"></i> <!-- FOCUS ICON--></div>';
+	                        echo '<h3 class="red-border-bottom">'.$friend->user->displayName.'</h3>';
+	                        echo '</div>';
+	
+	                    }
+	                    echo '</div>';
+	                    echo '</div>';
+	
+	                }
 
-                if( isset( $json->friends ) && count( $json->friends ) ){
-                    echo '<div class="clearfix">';
-                    echo '<h3 class="clearfix">'.__( 'Friends', 'fitpress' ).'</h3>';
+				 }
 
-                    echo '<div class="row clearfix">';
-                    foreach($json->friends  as $friend ){
-
-                        echo '<div class="col-sm-6 col-md-4 col-lg-3 text-center focus-box">';
-                        echo '<div class="service-icon"><i style="background:url('.$friend->user->avatar150.') no-repeat center;width:100%; height:100%;" class="pixeden"></i> <!-- FOCUS ICON--></div>';
-                        echo '<h3 class="red-border-bottom">'.$friend->user->displayName.'</h3>';
-                        echo '</div>';
-
-                    }
-                    echo '</div>';
-                    echo '</div>';
-
-                }
-
+                
+				// https://www.fitbit.com/user/profile/apps
+				
+				echo sprintf( '<a href="https://www.fitbit.com/user/profile/apps" class="btn btn-danger btn-xs" target="_BLANK">%s</a>', __( 'Revoke Fitbit Access', 'fitpress' ) );
 
                 // print_r($json);
 
             }else{
                 
-                $user_domain = bp_displayed_user_domain() ? bp_displayed_user_domain() : bp_loggedin_user_domain();
-            
-                $profile_link = trailingslashit( $user_domain . $bp->profile->slug );
+				/* $url = get_the_permalink(); */
 
-                $url = $profile_link.'fitpress/?FitPress=authorize';            
+			    $url = add_query_arg('FitPress', 'authorize_page', get_permalink());
 
                 ?>
-                <a href="<?php echo $url; ?>" class="btn btn-success btn-small"><?php _e( 'Authorize with Fitbit' ); ?></a>
+                <a href="<?php echo $url; ?>" class="btn btn-success btn-small"><?php _e( 'Authorize with Fitbit', 'fitpress' ); ?></a>
             <?php
 
             }
+		
+		
+		return $return;
 
-            
+	} // end fitpress_auth_func
+	
+	function fitpress_auth_redirect()
+		{
+		
+			global $bp;
 
-            // print_r($json);
+			global $fitbit_php;
+		    
+		    if( 0 != $fitbit_php->sessionStatus() || 'authorize_page' == $_GET['FitPress'] ){
 
-            // print_r($_SESSION);
+                $fitbit_php->initSession( get_permalink() );
 
-
-
-            
-         
-        }
-
-        /*
-        Plugin Name: BK User Custom Profiles
-        Plugin URI: http://bradknowlton.com/
-        Description: This is not just a plugin, it makes WordPress better.
-        Author: Bradford Knowlton
-        Version: 1.6.1
-        Author URI: http://bradknowlton.com/
-        */
-                
-        public static function show_extra_profile_fields( $user ) { 
-            if ( current_user_can( 'manage_options' ) ) {
-            /* A user with admin privileges */
-            
-            ?>
-
-            <h3><?php _e( 'FitPress Extra Settings' ); ?></h3>
-
-            <table class="form-table">
-                <?php foreach(self::$custom_profile_fields as $key => $field){ ?>
-                    <?php // if(  'true' != $field['private'] ){  // current_user_can( 'manage_options' ) ||  ?>
-                    <tr>
-                        <th><label for="<?php echo $key; ?>"><?php echo $field['label']; ?></label></th>
-            
-                        <td>
-                            <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo esc_attr( get_the_author_meta( $key, $user->ID ) ); ?>" class="regular-text" /><br />
-                            <span class="description"><?php printf( __('Your %s value.', 'fitpress' ), $field['label']); ?></span>
-                        </td>
-                    </tr>
-                    <?php // } // end if ?>
-                <?php } // end foreach ?>
-            </table>
-            <?php 
-                
-            } else {
-                /* A user without admin privileges */
             }
-                
-        }
-
-        function save_extra_profile_fields( $user_id ) {
-            if ( !current_user_can( 'edit_user', $user_id ) )
-                return false;
-            /* Copy and paste this line for additional fields. Make sure to change 'twitter' to the field ID. */
-            // update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
-        }
-
-
-    }
-
+		    
+		    
+		}
 }
 
-
-add_action('bp_setup_nav', array( 'FitPress_BuddyPress', 'bp_page_nav' ), 10 );
-
-add_action( 'show_user_profile', array( 'FitPress_BuddyPress', 'show_extra_profile_fields' ) );
-add_action( 'edit_user_profile', array( 'FitPress_BuddyPress', 'show_extra_profile_fields' ) );
-
-add_action( 'personal_options_update', array( 'FitPress_BuddyPress', 'save_extra_profile_fields' ) );
-add_action( 'edit_user_profile_update', array( 'FitPress_BuddyPress', 'save_extra_profile_fields' ) );
+add_shortcode( 'fitpress_auth', array( 'FitPress_Shortcode', 'fitpress_auth_func' ) );
 
 
-// if ( !function_exists('wp_new_user_notification') ) {
-//     function wp_new_user_notification( ) {}
-// }
+add_action( 'template_redirect', array( 'FitPress_Shortcode', 'fitpress_auth_redirect' ) );
