@@ -5,7 +5,7 @@ Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress
 Plugin URI: http://healthywebdeveloper.com
 Author: Bradford Knowlton
 Author URI: http://bradknowlton.com
-Version: 1.1.7
+Version: 1.2.1
 License: GPL2
 Text Domain: fitpress
 Domain Path: /languages
@@ -38,7 +38,7 @@ Requires WP: 4.4
 // Help with setting up gulp
 // https://travismaynard.com/writing/getting-started-with-gulp
 
-define( 'FITPRESS_PLUGIN_VERSION', '1.1.7' );  
+define( 'FITPRESS_PLUGIN_VERSION', '1.2.1' );  
 
 // possible future global use
 define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );  
@@ -49,6 +49,7 @@ define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitbit-api.php');
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitpress-settings.php');
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitpress-buddypress.php');
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-fitpress-shortcode.php');
 // require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-shortcode.php');
 // require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-post-type.php');
 // require_once( plugin_dir_path( __FILE__ ) . 'includes/class-friend-ajax.php');
@@ -58,11 +59,13 @@ $consumer_key = get_site_option( 'fitpress_consumer_key', false );
 $consumer_secret = get_site_option( 'fitpress_consumer_secret', false );
 // $fitbit_token = get_site_option( 'fitpress_fitbit_token', false );
 // $fitbit_secret = get_site_option( 'fitpress_fitbit_secret', false );
+$tab_name = get_site_option( 'fitpress_tab_name', false );
 
 define( 'FITPRESS_CONSUMER_KEY', $consumer_key );
 define( 'FITPRESS_CONSUMER_SECRET', $consumer_secret );
 // define( 'FITPRESS_FITBIT_TOKEN', $fitbit_token );
 // define( 'FITPRESS_FITBIT_SECRET', $fitbit_secret );
+define( 'FITPRESS_TAB_NAME', $tab_name );
 
 global $fitbit_php;
 
