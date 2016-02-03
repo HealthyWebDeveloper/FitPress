@@ -193,7 +193,12 @@ class FitBitPHP
 
         } else if ($_SESSION['fitbit_Session'] == 1) {
 
-            $this->oauth->setToken($_GET['oauth_token'], $_SESSION['fitbit_Secret']);
+            if( !isset( $_GET['oauth_token'] ) ){
+                $request_token_info = $this->oauth->getRequestToken($this->requestTokenUrl, $callbackUrl);
+                $this->oauth->setToken($request_token_info['oauth_token'], $_SESSION['fitbit_Secret']);
+            }else{
+                $this->oauth->setToken($_GET['oauth_token'], $_SESSION['fitbit_Secret']);
+            }
             $access_token_info = $this->oauth->getAccessToken($this->accessTokenUrl);
 
             $_SESSION['fitbit_Session'] = 2;
