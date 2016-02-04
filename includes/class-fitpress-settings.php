@@ -30,6 +30,7 @@ if(!class_exists('FitPress_Settings'))
         {
             // register your plugin's settings
             register_setting('fitpress_settings-group', 'fitpress_consumer_key');
+            register_setting('fitpress_settings-group', 'fitpress_client_id');
             register_setting('fitpress_settings-group', 'fitpress_consumer_secret');
             register_setting('fitpress_settings-group', 'fitpress_tab_name');
             // register_setting('fitpress_settings-group', 'fitpress_fitbit_token');
@@ -52,6 +53,16 @@ if(!class_exists('FitPress_Settings'))
                 'fitpress_settings-section',
                 array(
                     'field' => 'fitpress_consumer_key'
+                )
+            );
+            add_settings_field(
+                'fitpress_settings-client_id', 
+                __( 'Consumer Key', 'fitpress' ), 
+                array(&$this, 'settings_field_input_text'), 
+                'fitpress_settings', 
+                'fitpress_settings-section',
+                array(
+                    'field' => 'fitpress_client_id'
                 )
             );
             add_settings_field(
