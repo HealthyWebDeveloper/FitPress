@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: FitPress
-Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress site.
+Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress site, with OAuth 2.0.
 Plugin URI: http://healthywebdeveloper.com
 Author: Bradford Knowlton
 Author URI: http://bradknowlton.com
-Version: 1.2.1
+Version: 2.0.1
 License: GPL2
 Text Domain: fitpress
 Domain Path: /languages
@@ -38,7 +38,7 @@ Requires WP: 4.4
 // Help with setting up gulp
 // https://travismaynard.com/writing/getting-started-with-gulp
 
-define( 'FITPRESS_PLUGIN_VERSION', '1.2.1' );  
+define( 'FITPRESS_PLUGIN_VERSION', '2.0.1' );  
 
 // possible future global use
 define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );  

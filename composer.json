@@ -1,0 +1,12 @@
+{
+	"minimum-stability": "dev",
+	"require": {
+        "djchen/oauth2-fitbit": "dev-master"
+    },
+    "config": {
+    	"platform": {
+	   		"php": "5.5"
+		}	
+    }
+    
+}
