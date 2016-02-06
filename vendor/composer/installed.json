@@ -1,8 +1,61 @@
 [
     {
+        "name": "guzzlehttp/promises",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/b1e1c0d55f8083c71eda2c28c12a228d708294ea",
+            "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2015-10-15 22:28:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle promises library",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
         "name": "psr/http-message",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "1.0",
+        "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/http-message.git",
@@ -24,7 +77,7 @@
                 "dev-master": "1.0.x-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Psr\\Http\\Message\\": "src/"
@@ -111,41 +164,33 @@
         ]
     },
     {
-        "name": "guzzlehttp/promises",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "ircmaxell/security-lib",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/guzzle/promises.git",
-            "reference": "581943b46d0736605e4ef4676e9a820bbfff7388"
+            "url": "https://github.com/ircmaxell/SecurityLib.git",
+            "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/promises/zipball/581943b46d0736605e4ef4676e9a820bbfff7388",
-            "reference": "581943b46d0736605e4ef4676e9a820bbfff7388",
+            "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/80934de3c482dcafb46b5756e59ebece082b6dc7",
+            "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5.0"
+            "php": ">=5.3.2"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0"
+            "mikey179/vfsstream": "1.1.*"
         },
-        "time": "2016-01-30 02:04:34",
+        "time": "2013-04-30 18:00:34",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "GuzzleHttp\\Promise\\": "src/"
-            },
-            "files": [
-                "src/functions_include.php"
-            ]
+            "psr-0": {
+                "SecurityLib": "lib"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -153,29 +198,83 @@
         ],
         "authors": [
             {
-                "name": "Michael Dowling",
-                "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
+                "name": "Anthony Ferrara",
+                "email": "ircmaxell@ircmaxell.com",
+                "homepage": "http://blog.ircmaxell.com"
             }
         ],
-        "description": "Guzzle promises library",
+        "description": "A Base Security Library",
+        "homepage": "https://github.com/ircmaxell/PHP-SecurityLib"
+    },
+    {
+        "name": "ircmaxell/random-lib",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ircmaxell/RandomLib.git",
+            "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
+            "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
+            "shasum": ""
+        },
+        "require": {
+            "ircmaxell/security-lib": "1.0.*@dev",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "mikey179/vfsstream": "1.1.*",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2015-01-15 16:31:45",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "RandomLib": "lib"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Anthony Ferrara",
+                "email": "ircmaxell@ircmaxell.com",
+                "homepage": "http://blog.ircmaxell.com"
+            }
+        ],
+        "description": "A Library For Generating Secure Random Numbers",
+        "homepage": "https://github.com/ircmaxell/RandomLib",
         "keywords": [
-            "promise"
+            "cryptography",
+            "random",
+            "random-numbers",
+            "random-strings"
         ]
     },
     {
         "name": "guzzlehttp/guzzle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "6.1.1",
+        "version_normalized": "6.1.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "8c033e192fdcddb3067ca77e0b6829e910ecdd7d"
+            "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8c033e192fdcddb3067ca77e0b6829e910ecdd7d",
-            "reference": "8c033e192fdcddb3067ca77e0b6829e910ecdd7d",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c6851d6e48f63b69357cbfa55bca116448140e0c",
+            "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c",
             "shasum": ""
         },
         "require": {
@@ -188,14 +287,14 @@
             "phpunit/phpunit": "~4.0",
             "psr/log": "~1.0"
         },
-        "time": "2016-01-31 00:19:49",
+        "time": "2015-11-23 00:47:50",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "6.2-dev"
+                "dev-master": "6.1-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "files": [
                 "src/functions_include.php"
@@ -228,122 +327,18 @@
         ]
     },
     {
-        "name": "ircmaxell/security-lib",
-        "version": "v1.1.0",
-        "version_normalized": "1.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ircmaxell/SecurityLib.git",
-            "reference": "f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5",
-            "reference": "f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "mikey179/vfsstream": "1.1.*"
-        },
-        "time": "2015-03-20 14:31:23",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "SecurityLib": "lib"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Anthony Ferrara",
-                "email": "ircmaxell@ircmaxell.com",
-                "homepage": "http://blog.ircmaxell.com"
-            }
-        ],
-        "description": "A Base Security Library",
-        "homepage": "https://github.com/ircmaxell/SecurityLib"
-    },
-    {
-        "name": "ircmaxell/random-lib",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ircmaxell/RandomLib.git",
-            "reference": "338d2f594f7148983805ad56f47de7e47d84b2b9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/338d2f594f7148983805ad56f47de7e47d84b2b9",
-            "reference": "338d2f594f7148983805ad56f47de7e47d84b2b9",
-            "shasum": ""
-        },
-        "require": {
-            "ircmaxell/security-lib": "1.1.*@dev",
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "mikey179/vfsstream": "1.1.*",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2015-04-08 13:58:58",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "RandomLib": "lib"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Anthony Ferrara",
-                "email": "ircmaxell@ircmaxell.com",
-                "homepage": "http://blog.ircmaxell.com"
-            }
-        ],
-        "description": "A Library For Generating Secure Random Numbers",
-        "homepage": "https://github.com/ircmaxell/RandomLib",
-        "keywords": [
-            "cryptography",
-            "random",
-            "random-numbers",
-            "random-strings"
-        ]
-    },
-    {
         "name": "league/oauth2-client",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/oauth2-client.git",
-            "reference": "b523109adfdab8ec7d45c7fb2ced16ce36138ca9"
+            "reference": "4f1a51817090b861651cf3497cd25714a7cabed5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/b523109adfdab8ec7d45c7fb2ced16ce36138ca9",
-            "reference": "b523109adfdab8ec7d45c7fb2ced16ce36138ca9",
+            "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/4f1a51817090b861651cf3497cd25714a7cabed5",
+            "reference": "4f1a51817090b861651cf3497cd25714a7cabed5",
             "shasum": ""
         },
         "require": {
@@ -359,7 +354,7 @@
             "satooshi/php-coveralls": "0.6.*",
             "squizlabs/php_codesniffer": "~2.0"
         },
-        "time": "2015-11-13 16:55:24",
+        "time": "2016-01-23 18:02:07",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -397,22 +392,22 @@
         ]
     },
     {
-        "name": "djchen/oauth2-fitbit",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "hwd/oauth2-fitbit",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/djchen/oauth2-fitbit.git",
-            "reference": "7aaa888b92aa14095e5883ed87c88b9ae49ba3cb"
+            "url": "https://github.com/HealthyWebDeveloper/oauth2-fitbit.git",
+            "reference": "d92edec3ccb826a754a94937e3920c515c4e759f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/djchen/oauth2-fitbit/zipball/7aaa888b92aa14095e5883ed87c88b9ae49ba3cb",
-            "reference": "7aaa888b92aa14095e5883ed87c88b9ae49ba3cb",
+            "url": "https://api.github.com/repos/HealthyWebDeveloper/oauth2-fitbit/zipball/d92edec3ccb826a754a94937e3920c515c4e759f",
+            "reference": "d92edec3ccb826a754a94937e3920c515c4e759f",
             "shasum": ""
         },
         "require": {
-            "league/oauth2-client": "1.1.*",
+            "league/oauth2-client": "1.2.*",
             "php": ">=5.4.0"
         },
         "require-dev": {
@@ -420,12 +415,12 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~2.0"
         },
-        "time": "2015-11-17 07:04:02",
+        "time": "2016-02-06 05:31:53",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "djchen\\OAuth2\\Client\\": "src/"
+                "hwd\\OAuth2\\Client\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -437,6 +432,11 @@
                 "name": "Dan Chen",
                 "email": "dan@djc.me",
                 "homepage": "https://www.djc.me"
+            },
+            {
+                "name": "Bradford Knowlton",
+                "email": "brad@healthywebdeveloper.com",
+                "homepage": "http://healthywebdeveloper.com/"
             }
         ],
         "description": "Fitbit OAuth 2.0 Client Provider for The PHP League OAuth2-Client",

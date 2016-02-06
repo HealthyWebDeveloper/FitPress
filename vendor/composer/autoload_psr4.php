@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'djchen\\OAuth2\\Client\\' => array($vendorDir . '/djchen/oauth2-fitbit/src'),
+    'hwd\\OAuth2\\Client\\' => array($vendorDir . '/hwd/oauth2-fitbit/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'League\\OAuth2\\Client\\' => array($vendorDir . '/league/oauth2-client/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),

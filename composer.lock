@@ -4,72 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "64492b319c42804b8a89dd9d4065b78f",
-    "content-hash": "92e08f6e4ef9709c5548ff868e729674",
+    "hash": "2d00bea903cbdec7f155f9090cb3f477",
+    "content-hash": "1df3fe49c1f6bf962e36d28916c04c73",
     "packages": [
         {
-            "name": "djchen/oauth2-fitbit",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/djchen/oauth2-fitbit.git",
-                "reference": "7aaa888b92aa14095e5883ed87c88b9ae49ba3cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/djchen/oauth2-fitbit/zipball/7aaa888b92aa14095e5883ed87c88b9ae49ba3cb",
-                "reference": "7aaa888b92aa14095e5883ed87c88b9ae49ba3cb",
-                "shasum": ""
-            },
-            "require": {
-                "league/oauth2-client": "1.1.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "djchen\\OAuth2\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dan Chen",
-                    "email": "dan@djc.me",
-                    "homepage": "https://www.djc.me"
-                }
-            ],
-            "description": "Fitbit OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
-            "keywords": [
-                "Authentication",
-                "authorization",
-                "client",
-                "fitbit",
-                "oauth",
-                "oauth2"
-            ],
-            "time": "2015-11-17 07:04:02"
-        },
-        {
             "name": "guzzlehttp/guzzle",
-            "version": "dev-master",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8c033e192fdcddb3067ca77e0b6829e910ecdd7d"
+                "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8c033e192fdcddb3067ca77e0b6829e910ecdd7d",
-                "reference": "8c033e192fdcddb3067ca77e0b6829e910ecdd7d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c6851d6e48f63b69357cbfa55bca116448140e0c",
+                "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +34,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -118,20 +67,20 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-01-31 00:19:49"
+            "time": "2015-11-23 00:47:50"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "dev-master",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "581943b46d0736605e4ef4676e9a820bbfff7388"
+                "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/581943b46d0736605e4ef4676e9a820bbfff7388",
-                "reference": "581943b46d0736605e4ef4676e9a820bbfff7388",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/b1e1c0d55f8083c71eda2c28c12a228d708294ea",
+                "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea",
                 "shasum": ""
             },
             "require": {
@@ -169,7 +118,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-01-30 02:04:34"
+            "time": "2015-10-15 22:28:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -230,21 +179,77 @@
             "time": "2016-01-23 01:23:02"
         },
         {
-            "name": "ircmaxell/random-lib",
-            "version": "dev-master",
+            "name": "hwd/oauth2-fitbit",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ircmaxell/RandomLib.git",
-                "reference": "338d2f594f7148983805ad56f47de7e47d84b2b9"
+                "url": "https://github.com/HealthyWebDeveloper/oauth2-fitbit.git",
+                "reference": "d92edec3ccb826a754a94937e3920c515c4e759f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/338d2f594f7148983805ad56f47de7e47d84b2b9",
-                "reference": "338d2f594f7148983805ad56f47de7e47d84b2b9",
+                "url": "https://api.github.com/repos/HealthyWebDeveloper/oauth2-fitbit/zipball/d92edec3ccb826a754a94937e3920c515c4e759f",
+                "reference": "d92edec3ccb826a754a94937e3920c515c4e759f",
                 "shasum": ""
             },
             "require": {
-                "ircmaxell/security-lib": "1.1.*@dev",
+                "league/oauth2-client": "1.2.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "hwd\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Chen",
+                    "email": "dan@djc.me",
+                    "homepage": "https://www.djc.me"
+                },
+                {
+                    "name": "Bradford Knowlton",
+                    "email": "brad@healthywebdeveloper.com",
+                    "homepage": "http://healthywebdeveloper.com/"
+                }
+            ],
+            "description": "Fitbit OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "fitbit",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2016-02-06 05:31:53"
+        },
+        {
+            "name": "ircmaxell/random-lib",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ircmaxell/RandomLib.git",
+                "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
+                "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
+                "shasum": ""
+            },
+            "require": {
+                "ircmaxell/security-lib": "1.0.*@dev",
                 "php": ">=5.3.2"
             },
             "require-dev": {
@@ -254,7 +259,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -281,20 +286,20 @@
                 "random-numbers",
                 "random-strings"
             ],
-            "time": "2015-04-08 13:58:58"
+            "time": "2015-01-15 16:31:45"
         },
         {
             "name": "ircmaxell/security-lib",
-            "version": "v1.1.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ircmaxell/SecurityLib.git",
-                "reference": "f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5"
+                "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5",
-                "reference": "f3db6de12c20c9bcd1aa3db4353a1bbe0e44e1b5",
+                "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/80934de3c482dcafb46b5756e59ebece082b6dc7",
+                "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7",
                 "shasum": ""
             },
             "require": {
@@ -304,11 +309,6 @@
                 "mikey179/vfsstream": "1.1.*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "SecurityLib": "lib"
@@ -326,21 +326,21 @@
                 }
             ],
             "description": "A Base Security Library",
-            "homepage": "https://github.com/ircmaxell/SecurityLib",
-            "time": "2015-03-20 14:31:23"
+            "homepage": "https://github.com/ircmaxell/PHP-SecurityLib",
+            "time": "2013-04-30 18:00:34"
         },
         {
             "name": "league/oauth2-client",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-client.git",
-                "reference": "b523109adfdab8ec7d45c7fb2ced16ce36138ca9"
+                "reference": "4f1a51817090b861651cf3497cd25714a7cabed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/b523109adfdab8ec7d45c7fb2ced16ce36138ca9",
-                "reference": "b523109adfdab8ec7d45c7fb2ced16ce36138ca9",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/4f1a51817090b861651cf3497cd25714a7cabed5",
+                "reference": "4f1a51817090b861651cf3497cd25714a7cabed5",
                 "shasum": ""
             },
             "require": {
@@ -390,11 +390,11 @@
                 "oauth2",
                 "single sign on"
             ],
-            "time": "2015-11-13 16:55:24"
+            "time": "2016-01-23 18:02:07"
         },
         {
             "name": "psr/http-message",
-            "version": "dev-master",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
@@ -444,15 +444,13 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "djchen/oauth2-fitbit": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "5.5"
+        "php": "6.0"
     }
 }

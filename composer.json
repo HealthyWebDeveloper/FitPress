@@ -1,11 +1,11 @@
 {
-	"minimum-stability": "dev",
 	"require": {
-        "djchen/oauth2-fitbit": "dev-master"
+        "hwd/oauth2-fitbit": "1.0.1"
     },
     "config": {
+    	"preferred-install": "dist",
     	"platform": {
-	   		"php": "5.5"
+	   		"php": "6.0"
 		}	
     }
     
