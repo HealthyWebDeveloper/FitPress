@@ -5,7 +5,7 @@ Description: Adds custom post type and fun stuff for Fibit tools on a BuddyPress
 Plugin URI: http://healthywebdeveloper.com
 Author: Bradford Knowlton
 Author URI: http://bradknowlton.com
-Version: 2.1.2
+Version: 2.2.2
 License: GPL2
 Text Domain: fitpress
 Domain Path: /languages
@@ -38,7 +38,7 @@ Requires WP: 4.4
 // Help with setting up gulp
 // https://travismaynard.com/writing/getting-started-with-gulp
 
-define( 'FITPRESS_PLUGIN_VERSION', '2.1.2' );  
+define( 'FITPRESS_PLUGIN_VERSION', '2.2.2' );  
 
 // possible future global use
 define( 'FITPRESS_PLUGIN_DIR', dirname(__FILE__).'/' );  
@@ -76,7 +76,7 @@ if( '' != FITPRESS_CONSUMER_KEY && '' != FITPRESS_CONSUMER_SECRET ){
 
     // $fitbit_php = new FitBitPHP( FITPRESS_CONSUMER_KEY, FITPRESS_CONSUMER_SECRET, 0, null, 'json' );
 
-    $provider = new djchen\OAuth2\Client\Provider\Fitbit([
+    $provider = new hwd\OAuth2\Client\Provider\Fitbit([
         'clientId'          => FITPRESS_CLIENT_ID,
         'clientSecret'      => FITPRESS_CONSUMER_SECRET,
         'redirectUri'       => get_permalink(),
